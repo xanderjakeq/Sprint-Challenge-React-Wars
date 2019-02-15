@@ -10,12 +10,12 @@
 .App .prevButton {
   position: fixed;
   top: 50%;
-  left: 10%;
+  left: 5%;
 }
 .App .nextButton {
   position: fixed;
   top: 50%;
-  right: 10%;
+  right: 5%;
 }
 .App button {
   font-family: inherit;
@@ -36,7 +36,12 @@
   text-shadow: 1px 1px 5px #fff;
 }
 /* write your parent styles in here for your App.js */
+.listContainer {
+  padding: 0 10%;
+}
 .listContainer .characters {
+  display: flex;
+  flex-wrap: wrap;
   margin: 50px 0;
 }
 .listContainer .characters .character {
@@ -44,7 +49,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 20px 0;
+  width: 33.23%;
+  min-height: 100px;
 }
 .listContainer .characters .character div {
   margin: 10px;

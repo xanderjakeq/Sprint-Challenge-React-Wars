@@ -12,13 +12,13 @@
     .prevButton{
         position: fixed;
         top: 50%;
-        left: 10%;
+        left: 5%;
     }
 
     .nextButton{
         position: fixed;
         top: 50%;
-        right: 10%;
+        right: 5%;
     }
 
     button{
@@ -45,7 +45,11 @@
   /* write your parent styles in here for your App.js */
 
 .listContainer{
+    padding: 0 10%;
     .characters{
+
+        display: flex;
+        flex-wrap: wrap;
 
         margin: 50px 0;
         .character{
@@ -56,9 +60,9 @@
             flex-direction: column;
             align-items: center;
 
-            margin: 20px 0;
+            width: 33.23%;
 
-            
+            min-height: 100px;            
 
             div{
                 margin: 10px;
