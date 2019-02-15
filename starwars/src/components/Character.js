@@ -8,8 +8,6 @@ const Character = (props) => {
         width: `${props.characterData.mass === 'unknown' ? 1 : props.characterData.mass}px`,
         height: `${props.characterData.height === 'unknown' ? 1 : props.characterData.height}px`,
     }
-    
-    console.log(heightWeightStyle, )
     return (
         <li className = "character">
             

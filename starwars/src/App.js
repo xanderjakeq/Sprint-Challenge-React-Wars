@@ -24,7 +24,6 @@ class App extends Component {
         return res.json();
       })
       .then(data => {
-        console.log(data)
         this.setState({ 
           starwarsChars: data.results,
           next: data.next,
@@ -51,7 +50,7 @@ class App extends Component {
       <div className="App">
         <h1 className="Header">React Wars (character height/mass)</h1>
         <Characters next = {this.next} prev = {this.previous} characters = {this.state.starwarsChars}/>
-        <button className = "prevButton" onClick = {this.prev}>Prev</button>
+        <button className = "prevButton" onClick = {this.previous}>Prev</button>
         <button className = "nextButton" onClick = {this.next}>Next</button>
       </div>
     );
