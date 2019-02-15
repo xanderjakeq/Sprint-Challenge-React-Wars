@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 
+import Characters from './components/Characters'
+
 class App extends Component {
   constructor() {
     super();
@@ -10,7 +12,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.getCharacters('https://swapi.co/api/people');
+    this.getCharacters('https://swapi.co/api/people/');
   }
 
   getCharacters = URL => {
@@ -22,17 +24,34 @@ class App extends Component {
         return res.json();
       })
       .then(data => {
-        this.setState({ starwarsChars: data.results });
+        this.setState({ 
+          starwarsChars: data.results,
+          next: data.next,
+          prev: data.previous
+        });
       })
       .catch(err => {
         throw new Error(err);
       });
   };
 
+  next = () => {
+    if(!this.state.next) return
+    this.getCharacters(this.state.next);
+  }
+
+  previous = () => {
+    if(!this.state.prev) return
+    this.getCharacters(this.state.prev);
+  }
+
   render() {
     return (
       <div className="App">
-        <h1 className="Header">React Wars</h1>
+        <h1 className="Header">React Wars (character height/mass)</h1>
+        <Characters next = {this.next} prev = {this.previous} characters = {this.state.starwarsChars}/>
+        <button className = "prevButton" onClick = {this.previous}>Prev</button>
+        <button className = "nextButton" onClick = {this.next}>Next</button>
       </div>
     );
   }
