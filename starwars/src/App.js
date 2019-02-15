@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 
+import Characters from './components/Characters'
+
 class App extends Component {
   constructor() {
     super();
@@ -22,17 +24,33 @@ class App extends Component {
         return res.json();
       })
       .then(data => {
-        this.setState({ starwarsChars: data.results });
+        console.log(data)
+        this.setState({ 
+          starwarsChars: data.results,
+          next: data.next,
+          prev: data.previous
+        });
       })
       .catch(err => {
         throw new Error(err);
       });
   };
 
+  next = () => {
+    if(!this.state.next) return
+    this.getCharacters(this.state.next);
+  }
+
+  previous = () => {
+    if(!this.state.prev) return
+    this.getCharacters(this.state.prev);
+  }
+
   render() {
     return (
       <div className="App">
         <h1 className="Header">React Wars</h1>
+        <Characters next = {this.next} prev = {this.previous} characters = {this.state.starwarsChars}/>
       </div>
     );
   }
