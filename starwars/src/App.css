@@ -52,9 +52,13 @@
   width: 33.23%;
   min-height: 100px;
 }
+.listContainer .characters .character h2 {
+  margin: 50px 0 20px;
+}
 .listContainer .characters .character div {
   margin: 10px;
   position: relative;
+  margin: auto;
   border-left: 3px solid salmon;
   border-bottom: 3px solid turquoise;
 }
