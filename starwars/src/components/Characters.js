@@ -4,14 +4,12 @@ import Character from './Character'
 
 const Characters = (props) => {
     return (
-        <div>
-            <ul>
+        <div className = 'listContainer'>
+            <ul className = 'characters'>
                {props.characters.map(character => {
                     return <Character key = {character.created} characterData = {character}/>
                 })}
             </ul>
-            <button onClick = {props.prev}>Prev</button>
-            <button onClick = {props.next}>Next</button>
         </div>
     )
 }
